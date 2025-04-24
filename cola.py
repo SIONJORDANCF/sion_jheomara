@@ -19,4 +19,13 @@ class Cola :
             self.final = nuevo_nodo            # Actualizar el final de la cola
         self.tamano += 1  # Incrementar el tamaño de la cola
 
-   
+    def desencolar(self):
+        if self.is_empty():
+            raise IndexError("No se puede desencolar de una cola vacía")
+        dato = self.frente.dato
+        self.frente = self.frente.siguiente
+        if self.frente is None:
+            self.final = None
+        self.contador -= 1
+        return dato
+       
